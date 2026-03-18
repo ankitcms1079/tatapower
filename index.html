@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tata Power Touch Experience</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" role="application" aria-label="Tata Power touch screen interface">
+      <header class="topbar">
+        <div class="logo logo-left">TATA <span>POWER</span></div>
+        <div class="logo logo-right">TATA</div>
+      </header>
+
+      <section class="hero">
+        <div class="ribbon">Step Into the Future of Energy</div>
+        <p>Tap a category to explore how we’re powering a smarter, greener tomorrow.</p>
+      </section>
+
+      <section class="grid" id="buttonGrid"></section>
+
+      <footer class="controls">
+        <button id="openPlayerBtn" class="secondary-btn">Open Player on Extended Screen</button>
+        <p id="status" aria-live="polite">Default video is playing in loop.</p>
+      </footer>
+
+      <div class="bottom-illustration" aria-hidden="true"></div>
+    </main>
+
+    <template id="categoryTemplate">
+      <article class="category-card">
+        <h2 class="category-title"></h2>
+        <div class="button-row"></div>
+      </article>
+    </template>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
