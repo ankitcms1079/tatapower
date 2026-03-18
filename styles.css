@@ -1,4 +1,10 @@
 :root {
+  --panel-line: #2b8a63;
+  --title-bg: #083848;
+  --btn-bg: #95ca45;
+  --btn-shadow: #6d9c2f;
+  --text: #ffffff;
+  --muted: #e3f0df;
   --bg-main: #003a3a;
   --bg-accent: #00545a;
   --panel-line: #4c9b4f;
@@ -21,6 +27,7 @@ body {
   overflow: hidden;
   font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
   color: var(--text);
+  background: #003c3c;
   background: radial-gradient(circle at 50% -10%, #02676e 0%, var(--bg-main) 46%, #022f33 100%);
 }
 
@@ -28,7 +35,19 @@ body {
   width: 1920px;
   height: 1080px;
   margin: 0 auto;
+  padding: 320px 58px 190px;
   position: relative;
+  overflow: hidden;
+  background: url("assets/kiosk-background.svg") center center / 1920px 1080px no-repeat;
+}
+
+.topbar,
+.ribbon-wrap,
+.brand-note,
+.bottom-illustration,
+.app::before,
+.app::after {
+  display: none;
   padding: 32px 68px 178px;
   overflow: hidden;
 }
@@ -79,6 +98,14 @@ body {
 
 .hero {
   text-align: center;
+  margin-bottom: 34px;
+}
+
+.hero p {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.15;
   margin-bottom: 54px;
 }
 
@@ -109,6 +136,16 @@ body {
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px 32px;
+  align-content: start;
+}
+
+.category-card {
+  min-height: 120px;
+  border: 2px solid var(--panel-line);
+  border-radius: 24px;
+  position: relative;
+  padding: 42px 14px 14px;
   gap: 38px 46px;
   padding: 0 62px;
 }
@@ -124,6 +161,7 @@ body {
 
 .category-card.wide {
   grid-column: 1 / -1;
+  max-width: 1020px;
   max-width: 980px;
   width: 100%;
   justify-self: center;
@@ -131,10 +169,14 @@ body {
 
 .category-title {
   position: absolute;
-  top: -24px;
+  top: -20px;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
+  background: var(--title-bg);
+  border: 2px solid var(--panel-line);
+  border-radius: 999px;
+  color: #f8fbfd;
   border: 2px solid var(--panel-line);
   border-radius: 999px;
   background: var(--title-bg);
@@ -143,12 +185,14 @@ body {
   font-weight: 800;
   line-height: 1;
   white-space: nowrap;
+  padding: 8px 30px;
 }
 
 .button-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 14px;
   gap: 12px;
 }
 
@@ -157,6 +201,12 @@ body {
   border: 0;
   border-radius: 12px;
   background: var(--btn-bg);
+  color: #ecf8de;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.05;
+  box-shadow: inset 0 -3px 0 var(--btn-shadow);
+  cursor: pointer;
   color: #f3ffe8;
   font-weight: 700;
   font-family: inherit;
@@ -169,11 +219,13 @@ body {
 .video-btn {
   min-width: 176px;
   min-height: 64px;
+  padding: 10px 18px;
   padding: 8px 16px;
   font-size: 15px;
 }
 
 .video-btn.long {
+  min-width: 320px;
   min-width: 328px;
 }
 
@@ -184,6 +236,26 @@ body {
 
 .controls {
   position: absolute;
+  left: 58px;
+  right: 58px;
+  bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.secondary-btn {
+  min-height: 66px;
+  padding: 12px 30px;
+  font-size: 15px;
+  border-radius: 16px;
+}
+
+#status {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #d9e8d2;
   opacity: 0;
   pointer-events: none;
 }
