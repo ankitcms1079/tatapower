@@ -27,3 +27,8 @@ npm start
 - For strict kiosk deployments, configure browser/system startup to auto-open two windows (controller + player).
 - Some browsers require user interaction before fullscreen or autoplay can start.
 - Server host/port can be overridden with `HOST` and `PORT` environment variables.
+
+## Background artwork
+
+- For exact visual matching, place the provided design file at `assets/kiosk-background.jpg` (1920x1080).
+- The app uses `assets/kiosk-background.svg` only as a fallback when the JPG is missing.
