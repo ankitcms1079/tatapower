@@ -18,7 +18,10 @@ const VIDEO_LIBRARY = {
 };
 
 const CATEGORIES = [
-  { title: "DUNIYA KISKE HAWALE?", buttons: [{ label: "Watch", key: "duniya" }] },
+  {
+    title: "DUNIYA KISKE HAWALE?",
+    buttons: [{ label: "Watch the future\nwe are leaving behind", key: "duniya", long: true }],
+  },
   {
     title: "SOUNDS OF OUR EARTH",
     buttons: [
@@ -27,25 +30,35 @@ const CATEGORIES = [
       { label: "Nature", key: "nature" },
     ],
   },
-  { title: "QUALITY LIFELONG", buttons: [{ label: "Discover", key: "lifelong" }] },
-  { title: "GENERATION GREEN", buttons: [{ label: "See How", key: "generation" }] },
+  {
+    title: "QUALITY LIFELONG",
+    buttons: [{ label: "Discover how clean energy\nimproves everyday living", key: "lifelong", long: true }],
+  },
+  {
+    title: "GENERATION GREEN",
+    buttons: [{ label: "See how the next generation\nis shaping a greener future", key: "generation", long: true }],
+  },
   {
     title: "SUSTAINABILITY SHOTS",
     buttons: [
       { label: "EZ Charge", key: "ezcharge" },
       { label: "Solaroof", key: "solaroof" },
-      { label: "Smart Meter", key: "smartmeter" },
+      { label: "Smart\nMeter", key: "smartmeter" },
     ],
   },
-  { title: "POWER FOR AI. AI FOR POWER", buttons: [{ label: "24x7", key: "ai" }] },
+  {
+    title: "POWER FOR AI. AI FOR POWER",
+    buttons: [{ label: "24x7 green power\nat scale", key: "ai", long: true }],
+  },
   {
     title: "SMART ENERGY IN ACTION",
+    wide: true,
     buttons: [
-      { label: "Rooftop QC", key: "rooftop" },
-      { label: "QC + MySine", key: "rooftopqc" },
-      { label: "EnerUni + CCRA", key: "eneruni" },
-      { label: "Energy Mix", key: "mix" },
-      { label: "Drone", key: "drone" },
+      { label: "Rooftop\nQC Demo", key: "rooftop" },
+      { label: "Rooftop QC +\nMySine Demo", key: "rooftopqc" },
+      { label: "EnerUni + CCRA\nControl Centre", key: "eneruni" },
+      { label: "Energy\nMix Explained", key: "mix" },
+      { label: "Drone\nAnalytics", key: "drone" },
     ],
   },
 ];
@@ -68,13 +81,19 @@ function buildButtons() {
   for (const category of CATEGORIES) {
     const clone = categoryTemplate.content.cloneNode(true);
     clone.querySelector(".category-title").textContent = category.title;
+    const card = clone.querySelector(".category-card");
     const row = clone.querySelector(".button-row");
+
+    if (category.wide) {
+      card.classList.add("wide");
+    }
 
     for (const item of category.buttons) {
       const btn = document.createElement("button");
       btn.className = "video-btn";
       btn.type = "button";
-      btn.textContent = item.label;
+      btn.innerHTML = item.label.replaceAll("\n", "<br>");
+      if (item.long) btn.classList.add("long");
       btn.dataset.videoKey = item.key;
       btn.addEventListener("click", () => playSelection(item.key));
       row.appendChild(btn);

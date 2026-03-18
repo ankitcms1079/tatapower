@@ -8,10 +8,15 @@
   </head>
   <body>
     <main class="app" role="application" aria-label="Tata Power touch screen interface">
-      <header class="app-header">
-        <h1>Step Into the Future of Energy</h1>
-        <p>Tap a category to explore how we’re powering a smarter, greener tomorrow.</p>
+      <header class="topbar">
+        <div class="logo logo-left">TATA <span>POWER</span></div>
+        <div class="logo logo-right">TATA</div>
       </header>
+
+      <section class="hero">
+        <div class="ribbon">Step Into the Future of Energy</div>
+        <p>Tap a category to explore how we’re powering a smarter, greener tomorrow.</p>
+      </section>
 
       <section class="grid" id="buttonGrid"></section>
 
@@ -19,6 +24,8 @@
         <button id="openPlayerBtn" class="secondary-btn">Open Player on Extended Screen</button>
         <p id="status" aria-live="polite">Default video is playing in loop.</p>
       </footer>
+
+      <div class="bottom-illustration" aria-hidden="true"></div>
     </main>
 
     <template id="categoryTemplate">
