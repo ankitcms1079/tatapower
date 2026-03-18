@@ -13,10 +13,10 @@ Fixed-size kiosk web app (`1920x1080`) that controls video playback on a second/
 ## Setup
 
 1. Put your videos in `videos/` and keep/update filenames used in `app.js` (`VIDEO_LIBRARY`).
-2. Serve the folder with any static server:
+2. Start the Node static server:
 
 ```bash
-python3 -m http.server 8080
+npm start
 ```
 
 3. Open `http://localhost:8080` on the touch screen.
@@ -26,3 +26,4 @@ python3 -m http.server 8080
 
 - For strict kiosk deployments, configure browser/system startup to auto-open two windows (controller + player).
 - Some browsers require user interaction before fullscreen or autoplay can start.
+- Server host/port can be overridden with `HOST` and `PORT` environment variables.

@@ -1,0 +1,12 @@
+{
+  "name": "tatapower-touch-kiosk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "1920x1080 touch-screen kiosk controller with second-screen video playback",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
