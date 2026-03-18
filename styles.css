@@ -5,6 +5,14 @@
   --btn-shadow: #6d9c2f;
   --text: #ffffff;
   --muted: #e3f0df;
+  --bg-main: #003a3a;
+  --bg-accent: #00545a;
+  --panel-line: #4c9b4f;
+  --title-bg: #073744;
+  --btn-bg: #97c84c;
+  --btn-shadow: #6f9e2b;
+  --text: #ffffff;
+  --muted: #eaf7e7;
 }
 
 * {
@@ -20,6 +28,7 @@ body {
   font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
   color: var(--text);
   background: #003c3c;
+  background: radial-gradient(circle at 50% -10%, #02676e 0%, var(--bg-main) 46%, #022f33 100%);
 }
 
 .app {
@@ -39,6 +48,52 @@ body {
 .app::before,
 .app::after {
   display: none;
+  padding: 32px 68px 178px;
+  overflow: hidden;
+}
+
+.app::before,
+.app::after {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 120px;
+  border: 2px solid #1a625d;
+  opacity: 0.38;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+}
+
+.app::before {
+  left: 58px;
+  bottom: 230px;
+  transform: rotate(-18deg);
+}
+
+.app::after {
+  right: 68px;
+  bottom: 175px;
+  transform: rotate(16deg);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.logo-left span {
+  font-weight: 500;
+}
+
+.logo-right {
+  text-align: right;
 }
 
 .hero {
@@ -51,6 +106,30 @@ body {
   font-size: 20px;
   font-weight: 500;
   line-height: 1.15;
+  margin-bottom: 54px;
+}
+
+.ribbon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 860px;
+  min-height: 106px;
+  padding: 0 46px;
+  font-size: 62px;
+  font-weight: 800;
+  line-height: 1.08;
+  border-radius: 52px;
+  color: #e5f5ff;
+  background: linear-gradient(90deg, #0b7a82 0%, #10959f 100%);
+  border: 8px solid #9dd34a;
+  box-shadow: 0 8px 0 rgb(0 0 0 / 20%);
+}
+
+.hero p {
+  margin: 34px 0 0;
+  font-size: 20px;
+  font-weight: 500;
   color: var(--muted);
 }
 
@@ -67,12 +146,23 @@ body {
   border-radius: 24px;
   position: relative;
   padding: 42px 14px 14px;
+  gap: 38px 46px;
+  padding: 0 62px;
+}
+
+.category-card {
+  min-height: 108px;
+  border: 2px solid var(--panel-line);
+  border-radius: 18px;
+  position: relative;
+  padding: 43px 12px 12px;
   background: transparent;
 }
 
 .category-card.wide {
   grid-column: 1 / -1;
   max-width: 1020px;
+  max-width: 980px;
   width: 100%;
   justify-self: center;
 }
@@ -87,6 +177,10 @@ body {
   border: 2px solid var(--panel-line);
   border-radius: 999px;
   color: #f8fbfd;
+  border: 2px solid var(--panel-line);
+  border-radius: 999px;
+  background: var(--title-bg);
+  padding: 8px 30px;
   font-size: 22px;
   font-weight: 800;
   line-height: 1;
@@ -99,6 +193,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 14px;
+  gap: 12px;
 }
 
 .video-btn,
@@ -112,17 +207,26 @@ body {
   line-height: 1.05;
   box-shadow: inset 0 -3px 0 var(--btn-shadow);
   cursor: pointer;
+  color: #f3ffe8;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+  box-shadow: inset 0 -3px 0 var(--btn-shadow);
+  line-height: 1.04;
 }
 
 .video-btn {
   min-width: 176px;
   min-height: 64px;
   padding: 10px 18px;
+  padding: 8px 16px;
   font-size: 15px;
 }
 
 .video-btn.long {
   min-width: 320px;
+  min-width: 328px;
 }
 
 .video-btn:active,
@@ -152,6 +256,33 @@ body {
   font-size: 15px;
   font-weight: 500;
   color: #d9e8d2;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.brand-note {
+  position: absolute;
+  right: 236px;
+  bottom: 70px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #2b4f3f;
+  z-index: 2;
+}
+
+.bottom-illustration {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 170px;
+  pointer-events: none;
+  background:
+    radial-gradient(280px 76px at 9% 100%, #dae6d5 0 72%, transparent 73%),
+    radial-gradient(360px 84px at 27% 100%, #dae6d5 0 74%, transparent 75%),
+    radial-gradient(370px 90px at 48% 100%, #dae6d5 0 72%, transparent 73%),
+    radial-gradient(350px 84px at 70% 100%, #dae6d5 0 73%, transparent 74%),
+    radial-gradient(300px 80px at 90% 100%, #dae6d5 0 74%, transparent 75%),
+    linear-gradient(#dae6d5, #dae6d5) bottom/100% 70px no-repeat,
+    linear-gradient(0deg, #2e5528 0 56px, transparent 56px);
 }
 
 @media (max-width: 1920px), (max-height: 1080px) {
