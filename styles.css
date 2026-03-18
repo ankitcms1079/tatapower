@@ -1,6 +1,4 @@
 :root {
-  --bg-main: #003c3c;
-  --bg-deep: #012f30;
   --panel-line: #2b8a63;
   --title-bg: #083848;
   --btn-bg: #95ca45;
@@ -21,92 +19,35 @@ body {
   overflow: hidden;
   font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
   color: var(--text);
-  background: radial-gradient(circle at 50% -10%, #0a5d64 0%, var(--bg-main) 45%, var(--bg-deep) 100%);
+  background: #003c3c;
 }
 
 .app {
   width: 1920px;
   height: 1080px;
   margin: 0 auto;
-  padding: 30px 44px 188px;
+  padding: 320px 58px 190px;
   position: relative;
   overflow: hidden;
+  background: url("assets/kiosk-background.svg") center center / 1920px 1080px no-repeat;
 }
 
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 24px;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0.5px;
-}
-
-.logo-left span {
-  font-weight: 500;
-}
-
-.logo-right {
-  text-align: right;
-  position: relative;
-  padding-top: 4px;
+.topbar,
+.ribbon-wrap,
+.brand-note,
+.bottom-illustration,
+.app::before,
+.app::after {
+  display: none;
 }
 
 .hero {
   text-align: center;
-  margin-bottom: 42px;
-}
-
-.ribbon-wrap {
-  width: fit-content;
-  margin: 0 auto;
-  position: relative;
-}
-
-.ribbon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 860px;
-  min-height: 106px;
-  border-radius: 48px;
-  padding: 0 48px;
-  background: linear-gradient(90deg, #0d7c83 0%, #118f96 100%);
-  border: 8px solid #9dd24b;
-  color: #ecf9ff;
-  font-size: 64px;
-  font-weight: 800;
-  letter-spacing: 0.4px;
-  line-height: 1;
-}
-
-.ribbon-mark {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 72px;
-  height: 80px;
-  border-radius: 12px 48px 12px 48px;
-  background: linear-gradient(140deg, #b8dd58 0%, #80b942 100%);
-}
-
-.ribbon-mark-left {
-  left: -34px;
-  transform: translateY(-50%) skewX(-18deg);
-}
-
-.ribbon-mark-right {
-  right: -34px;
-  transform: translateY(-50%) skewX(18deg);
+  margin-bottom: 34px;
 }
 
 .hero p {
-  margin: 34px 0 0;
+  margin: 0;
   font-size: 20px;
   font-weight: 500;
   line-height: 1.15;
@@ -116,34 +57,34 @@ body {
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 30px 30px;
+  gap: 28px 32px;
   align-content: start;
 }
 
 .category-card {
-  min-height: 118px;
-  border: 3px solid var(--panel-line);
-  border-radius: 28px;
+  min-height: 120px;
+  border: 2px solid var(--panel-line);
+  border-radius: 24px;
   position: relative;
-  padding: 44px 12px 12px;
+  padding: 42px 14px 14px;
   background: transparent;
 }
 
 .category-card.wide {
   grid-column: 1 / -1;
-  max-width: 1060px;
+  max-width: 1020px;
   width: 100%;
   justify-self: center;
 }
 
 .category-title {
   position: absolute;
-  top: -22px;
+  top: -20px;
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
   background: var(--title-bg);
-  border: 3px solid var(--panel-line);
+  border: 2px solid var(--panel-line);
   border-radius: 999px;
   color: #f8fbfd;
   font-size: 22px;
@@ -157,31 +98,31 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .video-btn,
 .secondary-btn {
   border: 0;
-  border-radius: 16px;
+  border-radius: 12px;
   background: var(--btn-bg);
   color: #ecf8de;
   font-family: inherit;
   font-weight: 700;
   line-height: 1.05;
-  box-shadow: inset 0 -4px 0 var(--btn-shadow);
+  box-shadow: inset 0 -3px 0 var(--btn-shadow);
   cursor: pointer;
 }
 
 .video-btn {
-  min-width: 184px;
+  min-width: 176px;
   min-height: 64px;
   padding: 10px 18px;
   font-size: 15px;
 }
 
 .video-btn.long {
-  min-width: 328px;
+  min-width: 320px;
 }
 
 .video-btn:active,
@@ -191,56 +132,26 @@ body {
 
 .controls {
   position: absolute;
-  opacity: 0;
-  pointer-events: none;
+  left: 58px;
+  right: 58px;
+  bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.brand-note {
-  position: absolute;
-  right: 228px;
-  bottom: 56px;
-  font-size: 17px;
-  font-weight: 700;
-  color: #2d513d;
-  z-index: 3;
+.secondary-btn {
+  min-height: 66px;
+  padding: 12px 30px;
+  font-size: 15px;
+  border-radius: 16px;
 }
 
-.bottom-illustration {
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 170px;
-  pointer-events: none;
-  z-index: 2;
-  background:
-    radial-gradient(260px 80px at 8% 100%, #d7e4d1 0 74%, transparent 75%),
-    radial-gradient(320px 88px at 28% 100%, #d7e4d1 0 73%, transparent 74%),
-    radial-gradient(360px 90px at 49% 100%, #d7e4d1 0 75%, transparent 76%),
-    radial-gradient(330px 82px at 70% 100%, #d7e4d1 0 73%, transparent 74%),
-    radial-gradient(310px 86px at 91% 100%, #d7e4d1 0 75%, transparent 76%),
-    linear-gradient(#d7e4d1, #d7e4d1) bottom/100% 64px no-repeat,
-    linear-gradient(0deg, #2d5627 0 52px, transparent 52px);
-}
-
-.app::before,
-.app::after {
-  content: "";
-  position: absolute;
-  width: 184px;
-  height: 128px;
-  border: 2px solid #215b57;
-  opacity: 0.35;
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
-}
-
-.app::before {
-  left: 82px;
-  top: 204px;
-}
-
-.app::after {
-  right: 94px;
-  top: 204px;
-  transform: scaleX(-1);
+#status {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #d9e8d2;
 }
 
 @media (max-width: 1920px), (max-height: 1080px) {
