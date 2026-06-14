@@ -1,12 +1,12 @@
 :root {
-  --bg-main: #003a3a;
-  --bg-accent: #00545a;
-  --panel-line: #4c9b4f;
-  --title-bg: #073744;
-  --btn-bg: #97c84c;
-  --btn-shadow: #6f9e2b;
+  --bg-main: #013f4f;
+  --bg-accent: #086272;
+  --panel-line: #54b86c;
+  --title-bg: #0a4b5f;
+  --btn-bg: #9ad05f;
+  --btn-shadow: #638f2e;
   --text: #ffffff;
-  --muted: #eaf7e7;
+  --muted: #dbedf2;
 }
 
 * {
@@ -21,7 +21,7 @@ body {
   overflow: hidden;
   font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
   color: var(--text);
-  background: radial-gradient(circle at 50% -10%, #02676e 0%, var(--bg-main) 46%, #022f33 100%);
+  background: radial-gradient(circle at 50% -15%, #178694 0%, var(--bg-main) 45%, #012d39 100%);
 }
 
 .app {
@@ -29,7 +29,7 @@ body {
   height: 1080px;
   margin: 0 auto;
   position: relative;
-  padding: 32px 68px 178px;
+  padding: 30px 68px 154px;
   overflow: hidden;
 }
 
@@ -37,22 +37,22 @@ body {
 .app::after {
   content: "";
   position: absolute;
-  width: 190px;
-  height: 120px;
-  border: 2px solid #1a625d;
-  opacity: 0.38;
+  width: 180px;
+  height: 110px;
+  border: 2px solid #2ea57f;
+  opacity: 0.3;
   clip-path: polygon(0 50%, 100% 0, 100% 100%);
 }
 
 .app::before {
-  left: 58px;
-  bottom: 230px;
+  left: 40px;
+  bottom: 205px;
   transform: rotate(-18deg);
 }
 
 .app::after {
-  right: 68px;
-  bottom: 175px;
+  right: 52px;
+  bottom: 160px;
   transform: rotate(16deg);
 }
 
@@ -60,17 +60,18 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 800;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .logo-left span {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .logo-right {
@@ -79,29 +80,30 @@ body {
 
 .hero {
   text-align: center;
-  margin-bottom: 54px;
+  margin-bottom: 46px;
 }
 
 .ribbon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 860px;
-  min-height: 106px;
-  padding: 0 46px;
+  width: min(100%, 960px);
+  min-height: 116px;
+  margin: 0;
+  padding: 0 38px;
   font-size: 62px;
   font-weight: 800;
-  line-height: 1.08;
-  border-radius: 52px;
-  color: #e5f5ff;
-  background: linear-gradient(90deg, #0b7a82 0%, #10959f 100%);
-  border: 8px solid #9dd34a;
-  box-shadow: 0 8px 0 rgb(0 0 0 / 20%);
+  line-height: 1.05;
+  border-radius: 64px;
+  color: #ecfbff;
+  background: linear-gradient(90deg, #117b8f 0%, #18a6ba 100%);
+  border: 8px solid #9adf5d;
+  box-shadow: 0 12px 24px rgb(0 0 0 / 18%);
 }
 
 .hero p {
-  margin: 34px 0 0;
-  font-size: 20px;
+  margin: 22px 0 0;
+  font-size: 22px;
   font-weight: 500;
   color: var(--muted);
 }
@@ -109,22 +111,22 @@ body {
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 38px 46px;
-  padding: 0 62px;
+  gap: 36px 44px;
+  padding: 0 48px;
 }
 
 .category-card {
-  min-height: 108px;
+  min-height: 114px;
   border: 2px solid var(--panel-line);
-  border-radius: 18px;
+  border-radius: 20px;
   position: relative;
-  padding: 43px 12px 12px;
-  background: transparent;
+  padding: 45px 14px 14px;
+  background: linear-gradient(180deg, rgb(9 77 99 / 36%), rgb(4 63 74 / 14%));
 }
 
 .category-card.wide {
   grid-column: 1 / -1;
-  max-width: 980px;
+  max-width: 1020px;
   width: 100%;
   justify-self: center;
 }
@@ -138,10 +140,9 @@ body {
   border: 2px solid var(--panel-line);
   border-radius: 999px;
   background: var(--title-bg);
-  padding: 8px 30px;
+  padding: 8px 28px;
   font-size: 22px;
   font-weight: 800;
-  line-height: 1;
   white-space: nowrap;
 }
 
@@ -157,44 +158,60 @@ body {
   border: 0;
   border-radius: 12px;
   background: var(--btn-bg);
-  color: #f3ffe8;
+  color: #f4ffe8;
   font-weight: 700;
   font-family: inherit;
   cursor: pointer;
   touch-action: manipulation;
-  box-shadow: inset 0 -3px 0 var(--btn-shadow);
-  line-height: 1.04;
+  box-shadow: inset 0 -4px 0 var(--btn-shadow);
+  line-height: 1.05;
+  transition: transform 120ms ease;
 }
 
 .video-btn {
-  min-width: 176px;
-  min-height: 64px;
-  padding: 8px 16px;
+  min-width: 178px;
+  min-height: 66px;
+  padding: 8px 14px;
   font-size: 15px;
 }
 
 .video-btn.long {
-  min-width: 328px;
+  min-width: 334px;
 }
 
 .video-btn:active,
 .secondary-btn:active {
-  transform: translateY(1px);
+  transform: translateY(2px);
 }
 
 .controls {
   position: absolute;
-  opacity: 0;
-  pointer-events: none;
+  left: 68px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.secondary-btn {
+  min-height: 46px;
+  padding: 10px 16px;
+  font-size: 14px;
+}
+
+#status {
+  margin: 0;
+  font-size: 14px;
+  color: #e9fce5;
 }
 
 .brand-note {
   position: absolute;
-  right: 236px;
-  bottom: 70px;
+  right: 210px;
+  bottom: 30px;
   font-size: 17px;
   font-weight: 700;
-  color: #2b4f3f;
+  color: #355f4c;
   z-index: 2;
 }
 
@@ -204,13 +221,13 @@ body {
   height: 170px;
   pointer-events: none;
   background:
-    radial-gradient(280px 76px at 9% 100%, #dae6d5 0 72%, transparent 73%),
-    radial-gradient(360px 84px at 27% 100%, #dae6d5 0 74%, transparent 75%),
-    radial-gradient(370px 90px at 48% 100%, #dae6d5 0 72%, transparent 73%),
-    radial-gradient(350px 84px at 70% 100%, #dae6d5 0 73%, transparent 74%),
-    radial-gradient(300px 80px at 90% 100%, #dae6d5 0 74%, transparent 75%),
-    linear-gradient(#dae6d5, #dae6d5) bottom/100% 70px no-repeat,
-    linear-gradient(0deg, #2e5528 0 56px, transparent 56px);
+    radial-gradient(280px 76px at 9% 100%, #dce8d8 0 72%, transparent 73%),
+    radial-gradient(360px 84px at 27% 100%, #dce8d8 0 74%, transparent 75%),
+    radial-gradient(370px 90px at 48% 100%, #dce8d8 0 72%, transparent 73%),
+    radial-gradient(350px 84px at 70% 100%, #dce8d8 0 73%, transparent 74%),
+    radial-gradient(300px 80px at 90% 100%, #dce8d8 0 74%, transparent 75%),
+    linear-gradient(#dce8d8, #dce8d8) bottom/100% 70px no-repeat,
+    linear-gradient(0deg, #2f5929 0 56px, transparent 56px);
 }
 
 @media (max-width: 1920px), (max-height: 1080px) {
